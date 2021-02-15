@@ -1,0 +1,52 @@
+// variables
+$white : #ecf0f1;
+.table_div{
+    width: 100%;
+    height: 90vh;
+    background: $white;
+    padding: 1rem;
+    h1{
+        font-size: 2rem;
+        margin-top: .5rem;
+        text-align: center;
+        word-spacing: 4px;
+    }
+    table{
+        width: 100%;
+        max-height: 75vh;
+        margin-top: 1rem;
+        border: 2px solid #333;
+        border-collapse: collapse;
+        td,th{
+            padding: .2rem 1rem;
+            text-align: left;
+            font-size: 1rem;
+        }
+        td{
+            font-size: .9rem;
+            border-top: 1x solid black;
+        }
+        .icons_row{
+            text-align: center;
+        }
+        thead{
+            background: #777;
+            border: 2px solid black;
+        }
+        tbody{
+            & tr:nth-child(odd){
+                background: $white;
+            }
+            & tr:nth-child(even){
+                background: rgba(128, 128, 128, 0.432);
+            }
+            & tr .icons{
+                display: flex;
+                justify-content: space-around;
+                .update, .delete{
+                    color: #f53b57;
+                }
+            }
+        }
+    }
+}
