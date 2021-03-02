@@ -1,0 +1,165 @@
+@mixin flex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+.chatroom_container{
+    width: 100%;
+    height: 100vh;
+    background:$white;
+    @include flex(row, none, none);
+    position: relative;
+    .sec1{
+        width: 30%;
+        height: 100%;
+        border-right: 2px solid $light_black;
+        background: $white;
+        header{
+            width: 100%;
+            padding: .5rem .3rem;
+            background: $green;
+            @include flex(row, space-between, center);
+            h1{
+                color: $white;
+                font-size: 1.2rem;
+                text-shadow: 1px 1px 3px $black;
+            }
+            .typing{
+                font-size: .8rem;
+                font-weight: 700;
+                letter-spacing: 1px;
+                color: $black;
+                // display: none;
+            }
+        }
+        .users_div{
+            width: 100%;
+            height: 90vh;
+            list-style: none;
+            overflow:auto;
+            &::-webkit-scrollbar{
+                display: none
+            }
+            @include flex(column, baseline, center);
+            a{
+                width:100%;
+                text-decoration:none;
+            }
+            li{
+                width: 100%;
+                margin: .2rem 0;
+                font-size: 1rem;
+                width: 100%;
+                padding: .5rem;
+                border: 1px solid #00000062;
+                font-weight: 600;
+                cursor: pointer;
+                &:first-child,
+                &:last-child{
+                    margin: 0;
+                }
+            }
+        }
+    }
+    .sec2{
+        width: 70%;
+        header{
+            @include flex(row, space-between, center);
+            box-shadow: 0 2px 10px 2px #0000002d;
+            padding: .5rem .3rem;
+            position: relative;
+            h1{
+                .arrow_btn{
+                    display: none;
+                }
+            }
+        }
+        .chat_screen{
+            width: 100%;
+            height: 80vh;
+            overflow:auto;
+            &::-webkit-scrollbar{
+                display: none;
+            }
+            .msg{
+                width: 100%;
+                margin: .5rem .1rem;
+                padding: .2rem 1rem;
+                font-size: .9rem;
+                text-align: left;
+                span{
+                    display: block;
+                    font-size: 1rem;
+                    color: red;
+                    text-shadow: 1px 1px 3px $light_black;
+                    cursor: pointer;
+                }
+            }
+            .me{
+                text-align: right;
+                // background: rgb(233, 233, 233);
+            }
+            // .they{
+            //     background: rgb(255, 255, 255);
+            // }
+            .joined{
+                text-align: center;
+                font-weight: 600;
+                font-size: 0.8rem;
+                color: $black;
+            }
+            .their_privateMSG{
+                text-align: left;
+                background: #00000050;
+            }
+            .my_privateMSG{
+                text-align: right;
+                background: #00000050;
+            }
+        }
+        .msg_box{
+            width: 100%;
+            padding: .5rem .3rem;
+            background: $white;
+            @include flex(row, space-around, center);
+            #msg_input{
+                width: 70ch;
+            }
+            .send_btn{
+                margin-top: 1rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:630px){
+    .chatroom_container .sec2{
+        width: 100%;
+        header{
+            h1{
+                .arrow_btn{
+                    display: inline-block;
+                    margin-top: .3rem;
+                }
+            }
+        }
+    }
+    .chatroom_container .sec1{
+        width: 40%;
+        position:absolute;
+        top: 0;
+        left: 0;
+        transition: .3s;
+        transform: translateX(-100%);
+        z-index: 10;
+    }
+}
+@media screen and (max-width:475px){
+    .chatroom_container .sec1{
+        width: 50%;
+    }
+}
+.chatroom_container .sec1.show{
+    transform: translateX(0%);
+}

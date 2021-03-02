@@ -1,0 +1,40 @@
+@mixin media($width) {
+    .user_info.show{
+        width: $width;
+        h1{
+            font-size: .9rem;
+        }
+    }
+}
+
+.user_info{
+    display: none;
+}
+.user_info.show{
+    display: block;
+    width: 50%;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #00000098;
+    color: $white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem .2rem;
+    border-radius: 5px;
+    backdrop-filter: blur(20px);
+    h1{
+        margin-right: .3rem;
+    }
+    button{
+        color: $light_red;
+    }
+}
+@media screen and (max-width:800px){
+    @include media(80%);
+}
+@media screen and (max-width:600px){
+    @include media(95%);
+}
