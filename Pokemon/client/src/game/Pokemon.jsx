@@ -9,7 +9,7 @@ import Close from '@material-ui/icons/Close';
 import TextField from '@material-ui/core/TextField';
 
 import io from "socket.io-client";
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect("/");
 
 let allData = {};
 

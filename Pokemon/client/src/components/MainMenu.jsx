@@ -5,7 +5,7 @@ import CreateGame from "./forms/CreateGame";
 import JoinGame from "./forms/JoinGame";
 
 import io from "socket.io-client";
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect("/");
 
 let error_div_create, error_div_join, input_room, input_player, input_player_create, input_room_join;
 
