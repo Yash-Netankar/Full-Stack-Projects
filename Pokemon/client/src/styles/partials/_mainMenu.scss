@@ -14,7 +14,7 @@
 
 .menu_container{
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     background: $white;
     @include flex(column, center, center);
     .tabs_div{
@@ -65,6 +65,7 @@
                 font-family: "Poppins";
                 font-size: 1rem;
                 background: transparent;
+                margin-bottom: 1rem;
                 &:focus{
                     border-bottom: 2px solid rgb(11, 100, 202);
                 }

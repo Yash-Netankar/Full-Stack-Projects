@@ -10,7 +10,7 @@ import UserInfo from "./UserInfo";
 import Arrow from '@material-ui/icons/ArrowForwardIos';
 
 import io from "socket.io-client";
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect("http://localhost:3001/");
 
 
 const ChatRoom = () => {
@@ -22,12 +22,12 @@ const ChatRoom = () => {
 
     const options = [
         <Button onClick={() => setSidebar(false)}>Close</Button>,
-        'Home',
-        'Create Room'
+        'In Progress1',
+        'In Progress2'
     ];
     const options2 = [
-        'Exit',
-        'Delete All'
+        'In Progress3',
+        'In Progress4'
     ];
 
     const { name } = useParams();
@@ -48,6 +48,7 @@ const ChatRoom = () => {
             AppendMsg(data.msg, data.name, "they");
         });
 
+        // disconnect
         socket.on('left', data => {
             let chat_screen = document.querySelector(".chat_screen");
             let joined_div = document.createElement("div");
@@ -89,11 +90,12 @@ const ChatRoom = () => {
         document.getElementById("msg_input").addEventListener("keyup", (e) => {
             socket.emit("typing", { name: name });
         });
-        // user is typing end
+
         //to avoid warning of useeffect
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    // list of all users joined
     const displayUsersJoined = (arr) => {
         document.querySelector(".users_div").innerHTML = `
         ${arr.map(item => `
@@ -107,7 +109,7 @@ const ChatRoom = () => {
         div.classList.add("msg");
         div.classList.add(clas);
         let span = document.createElement("span");
-        pvt ? span.innerHTML = `${name} (Private)` : span.innerText = name;
+        span.innerText = name;
         span.addEventListener("click", (e) => setPvt_uname(e.target.innerText));
         div.append(span);
         let p = document.createElement("p");
@@ -134,7 +136,16 @@ const ChatRoom = () => {
             document.querySelector("#msg_input").focus();
         }
         else {
-            alert("Please Select A username by clicking on the names you can see in chatscreen to send a private message");
+            let uname = prompt("Please Select A username by clicking on the names you can see in chatscreen to send a private message OR enter a name here");
+            if (uname !== "") {
+                socket.emit("pvt_msg", { msg: msg, pvt_uname: uname });
+                AppendMsg(msg, "You", 'my_privateMSG');
+                setMsg("");
+                document.querySelector("#msg_input").focus();
+            }
+            else {
+                alert("Please Select A username by clicking on the names you can see in chatscreen to send a private message");
+            }
         }
     }
 
