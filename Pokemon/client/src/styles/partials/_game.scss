@@ -1,0 +1,131 @@
+// mixins
+@mixin flex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+@mixin media {
+    .card-container{
+        @include flex(column, center, center);
+
+    }     
+}
+
+.game_container{
+    width: 100vw;
+    height: 100vh;
+    // game header
+    .game_header{
+        padding: .5rem .3rem;
+        @include flex(row, space-between, center);
+        background: $white;
+        .logo{
+            @include flex(row, space-around, center);
+        }
+    }
+// game card
+.card-container {
+    width: 100%;
+    height: auto;
+    background: $white;
+    box-shadow: 0 0 10px 3px #00000050;
+    // padding: 10px 20px;
+    @include flex(none, space-around, center);
+    .card_input{
+        flex: 1;
+        padding: 1rem .5rem;
+        width: 90%;
+        @include flex(column, space-around, center);
+        .num_input{
+            width: 80%;
+            padding: .2rem;
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 1rem;
+            font-family: "Poppins";
+            border-bottom: 2px solid black;
+            &:focus{
+                border-bottom: 2px solid royalblue;
+            }
+        }
+        .play_btn{
+            margin-top: 1rem;
+            background: $yellow;
+        }
+    }
+    .card {
+        flex: 1;
+        padding: 5px 10px;
+        border: 2px solid silver;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 0 7px 2px #f5f5f54b;
+        .img-div {
+            margin: 5px auto;
+            width: 30%;
+            transition: .3s;
+            backdrop-filter: blur(15px);
+            border: 2px solid #ff4757;
+            display: grid;
+            place-items: center;
+            &:hover{
+                transform: scale(1.09);
+                box-shadow: 0 0 10px 2px #0000005e;
+            }
+            img{
+                object-fit: fill;
+            }
+          }
+        h1{
+            font-size: 20px;
+            color: #ced6e0;
+            text-shadow: 1px 1px 2px black;
+        }
+        h3 {
+            font-size: 15px;
+            color: #ced6e0;
+            text-shadow: 1px 1px 2px black;
+        }
+        h1 span,
+        h3 span {
+            font-family: cursive;
+            text-shadow: 1px 1px 2px black;
+        }
+        input {
+            outline: none;
+            padding: 3px;
+            border: none;
+            border-bottom: 2px solid #2f3542;
+            background: transparent;
+            color: #ff4757;
+            font-weight: 600;
+            &::placeholder {
+                font-weight: 400;
+                letter-spacing: 1px;
+                word-spacing: 2px;
+                color: #ff4757;
+              }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:600px){
+    @include media;
+    .card-container .card_input{
+        margin-bottom: 1rem
+    }
+    .card{
+        width: 90%
+    }
+}
+  // sidebars
+@import "./sidebar";
+@import "./leaderboard";
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  
