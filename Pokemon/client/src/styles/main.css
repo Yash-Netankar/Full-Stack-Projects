@@ -8,7 +8,7 @@
 body {
   font-size: 62.5%;
   font-family: "Poppins";
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .menu_container {
@@ -200,6 +200,7 @@ body {
 .game_container .card-container {
   width: 100%;
   background: #ecf0f1;
+  padding: 1rem .5rem;
   -webkit-box-shadow: 0 0 10px 3px #00000050;
           box-shadow: 0 0 10px 3px #00000050;
   display: -webkit-box;
@@ -255,6 +256,7 @@ body {
 .game_container .card-container .card_input .play_btn {
   margin-top: 1.5rem;
   background: #ffd32a;
+  font-weight: 600;
 }
 
 .game_container .card-container .card {
@@ -262,7 +264,6 @@ body {
       -ms-flex: 1;
           flex: 1;
   padding: 5px 10px;
-  border: 2px solid silver;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -313,46 +314,48 @@ body {
 
 .game_container .card-container .card h1 span,
 .game_container .card-container .card h3 span {
-  font-family: cursive;
+  font-family: "Poppins";
   text-shadow: 1px 1px 2px black;
 }
 
-.game_container .card-container .card input {
-  outline: none;
-  padding: 3px;
+.game_container .rounds_div {
+  width: 100%;
+  margin: 1.5rem 0;
+  padding: .5rem;
+  background: #ecf0f1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.game_container .rounds_div input {
+  width: 80%;
+  padding: .3rem;
   border: none;
   border-bottom: 2px solid #2f3542;
+  outline: none;
+  font-family: "Poppins";
+  font-size: 1rem;
   background: transparent;
-  color: #ff4757;
+  margin-bottom: 1rem;
+}
+
+.game_container .rounds_div input:focus {
+  border-bottom: 2px solid #0b64ca;
+}
+
+.game_container .rounds_div .round_btn {
+  background: #ffd32a;
   font-weight: 600;
-}
-
-.game_container .card-container .card input::-webkit-input-placeholder {
-  font-weight: 400;
-  letter-spacing: 1px;
-  word-spacing: 2px;
-  color: #ff4757;
-}
-
-.game_container .card-container .card input:-ms-input-placeholder {
-  font-weight: 400;
-  letter-spacing: 1px;
-  word-spacing: 2px;
-  color: #ff4757;
-}
-
-.game_container .card-container .card input::-ms-input-placeholder {
-  font-weight: 400;
-  letter-spacing: 1px;
-  word-spacing: 2px;
-  color: #ff4757;
-}
-
-.game_container .card-container .card input::placeholder {
-  font-weight: 400;
-  letter-spacing: 1px;
-  word-spacing: 2px;
-  color: #ff4757;
 }
 
 @media screen and (max-width: 600px) {
@@ -376,6 +379,27 @@ body {
   }
   .card {
     width: 90%;
+  }
+  .game_container .rounds_div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .game_container .rounds_div input {
+    width: 100%;
+  }
+  .game_container .rounds_div .round_btn {
+    margin-top: 1rem;
   }
 }
 
@@ -525,18 +549,23 @@ body {
 @media screen and (max-width: 768px) {
   .sidebar1 {
     width: 90%;
-    height: 98vh;
+    height: 100vh;
+  }
+  .sidebar1 .chat_body {
+    height: 95%;
   }
   .sidebar2 {
     width: 50%;
-    height: 98vh;
+    height: 100vh;
   }
 }
 
 @media screen and (max-width: 508px) {
-  .sidebar1 {
+  .sidebar1, .sidebar1.show {
     width: 100%;
-    height: 98vh;
+  }
+  .sidebar1 .chat_body {
+    height: 87%;
   }
 }
 
@@ -579,8 +608,8 @@ body {
   border-right: 1px solid black;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  display: none;
 }
 /*# sourceMappingURL=main.css.map */

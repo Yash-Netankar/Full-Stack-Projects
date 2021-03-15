@@ -8,7 +8,6 @@
 @mixin media {
     .card-container{
         @include flex(column, center, center);
-
     }     
 }
 
@@ -54,6 +53,7 @@
         .play_btn{
             margin-top: 1.5rem;
             background: $yellow;
+            font-weight: 600;
         }
     }
     .card {
@@ -95,6 +95,32 @@
         }
         }
     }
+    // no of rounds
+    .rounds_div{
+        width: 100%;
+        margin: 1.5rem 0;
+        padding: .5rem;
+        background: $white;
+        @include flex(row, space-around, center);
+        input{
+            width: 80%;
+            padding: .3rem;
+            border: none;
+            border-bottom:2px solid $lgt_black;
+            outline: none;
+            font-family: "Poppins";
+            font-size: 1rem;
+            background: transparent;
+            margin-bottom: 1rem;
+            &:focus{
+                border-bottom: 2px solid rgb(11, 100, 202);
+            }
+        }
+        .round_btn{
+            background: $yellow;
+            font-weight: 600;
+        }
+    }
 }
 
 @media screen and (max-width:600px){
@@ -105,7 +131,19 @@
     .card{
         width: 90%
     }
+    .game_container .rounds_div{
+        @include flex(column, center, center);
+        input{width: 100%;}
+        .round_btn{
+            margin-top: 1rem
+        }
+    }
 }
   // sidebars
 @import "./sidebar";
 @import "./leaderboard";
+
+input::-webkit-inner-spin-button, 
+input::-webkit-outer-spin-button{
+    display: none;
+}

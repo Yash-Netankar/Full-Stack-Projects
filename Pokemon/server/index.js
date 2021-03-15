@@ -90,6 +90,8 @@ io.on("connection", socket => {
     socket.on("chat-msg", data => {
         io.to(`${data.room}`).emit("chat-msg-send", { name: data.name, msg: data.msg })
     });
+
+
     //GAME
     socket.on("play", data => {
         allData.push(data);
@@ -109,7 +111,21 @@ io.on("connection", socket => {
             allData = [];
             io.to(data.room).emit("winner", { winner, score: scores[winner] });
         }
-    })
+    });
+
+    // SET ROUNDS
+    socket.on("round", data => {
+        io.to(data.room).emit("set_rounds", { round: data.round })
+    });
+
+    //GAME WINNER
+    socket.on("winner", room => {
+        let max_value_in_obj = Object.values(scores).sort((a, b) => b - a)[0];
+        let index = Object.keys(scores).findIndex(key => scores[key] === max_value_in_obj)
+        let name = Object.keys(scores)[index];
+        io.to(room).emit("game_winner", { name, score: max_value_in_obj });
+    });
+
     //LEAVE
     socket.on("disconnect", () => {
         let id = socket.id;
