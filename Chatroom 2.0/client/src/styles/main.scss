@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    padding: 0;
+    margin:0;
+    font-size: 62.5%;
+    font-family: "Poppins";
+}
+
+@import "./partials/var";
+@import "./partials/loginRes";

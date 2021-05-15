@@ -1,0 +1,412 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 62.5%;
+  font-family: "Poppins";
+}
+
+.register_container,
+.login_container {
+  width: 100%;
+  min-height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  background-color: whitesmoke;
+}
+
+.register_container .login_box,
+.register_container .register_box,
+.login_container .login_box,
+.login_container .register_box {
+  width: 85%;
+  height: 65vh;
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.382), 0 2px 7px 2px rgba(0, 0, 0, 0.282), 0 3px 10px 4px rgba(0, 0, 0, 0.182);
+          box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.382), 0 2px 7px 2px rgba(0, 0, 0, 0.282), 0 3px 10px 4px rgba(0, 0, 0, 0.182);
+}
+
+.register_container .login_box h1,
+.register_container .register_box h1,
+.login_container .login_box h1,
+.login_container .register_box h1 {
+  font-size: 2rem;
+  text-align: center;
+  border: 2px solid #011627;
+  border-bottom: none;
+}
+
+.register_container .login_box .formBox,
+.register_container .register_box .formBox,
+.login_container .login_box .formBox,
+.login_container .register_box .formBox {
+  height: 90%;
+  border: 2px solid #011627;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.register_container .login_box .formBox .loginForm,
+.register_container .login_box .formBox .registerForm,
+.register_container .register_box .formBox .loginForm,
+.register_container .register_box .formBox .registerForm,
+.login_container .login_box .formBox .loginForm,
+.login_container .login_box .formBox .registerForm,
+.login_container .register_box .formBox .loginForm,
+.login_container .register_box .formBox .registerForm {
+  height: 100%;
+  -webkit-box-flex: .40;
+      -ms-flex: .40;
+          flex: .40;
+  border-right: 2px solid black;
+  background-color: whitesmoke;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.register_container .login_box .formBox .loginForm #login_error,
+.register_container .login_box .formBox .loginForm #register_error,
+.register_container .login_box .formBox .registerForm #login_error,
+.register_container .login_box .formBox .registerForm #register_error,
+.register_container .register_box .formBox .loginForm #login_error,
+.register_container .register_box .formBox .loginForm #register_error,
+.register_container .register_box .formBox .registerForm #login_error,
+.register_container .register_box .formBox .registerForm #register_error,
+.login_container .login_box .formBox .loginForm #login_error,
+.login_container .login_box .formBox .loginForm #register_error,
+.login_container .login_box .formBox .registerForm #login_error,
+.login_container .login_box .formBox .registerForm #register_error,
+.login_container .register_box .formBox .loginForm #login_error,
+.login_container .register_box .formBox .loginForm #register_error,
+.login_container .register_box .formBox .registerForm #login_error,
+.login_container .register_box .formBox .registerForm #register_error {
+  color: #85182a;
+  font-weight: 600;
+  font-size: .7rem;
+  margin-top: .8rem;
+  margin-bottom: .5rem;
+  text-align: center;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+}
+
+.register_container .login_box .formBox .loginForm .input_box,
+.register_container .login_box .formBox .registerForm .input_box,
+.register_container .register_box .formBox .loginForm .input_box,
+.register_container .register_box .formBox .registerForm .input_box,
+.login_container .login_box .formBox .loginForm .input_box,
+.login_container .login_box .formBox .registerForm .input_box,
+.login_container .register_box .formBox .loginForm .input_box,
+.login_container .register_box .formBox .registerForm .input_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.register_container .login_box .formBox .loginForm .input_box .standard-basic,
+.register_container .login_box .formBox .registerForm .input_box .standard-basic,
+.register_container .register_box .formBox .loginForm .input_box .standard-basic,
+.register_container .register_box .formBox .registerForm .input_box .standard-basic,
+.login_container .login_box .formBox .loginForm .input_box .standard-basic,
+.login_container .login_box .formBox .registerForm .input_box .standard-basic,
+.login_container .register_box .formBox .loginForm .input_box .standard-basic,
+.login_container .register_box .formBox .registerForm .input_box .standard-basic {
+  padding: .3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Poppins";
+}
+
+.register_container .login_box .formBox .loginForm .input_box .pass, .register_container .login_box .formBox .loginForm .input_box .cpass,
+.register_container .login_box .formBox .registerForm .input_box .pass,
+.register_container .login_box .formBox .registerForm .input_box .cpass,
+.register_container .register_box .formBox .loginForm .input_box .pass,
+.register_container .register_box .formBox .loginForm .input_box .cpass,
+.register_container .register_box .formBox .registerForm .input_box .pass,
+.register_container .register_box .formBox .registerForm .input_box .cpass,
+.login_container .login_box .formBox .loginForm .input_box .pass,
+.login_container .login_box .formBox .loginForm .input_box .cpass,
+.login_container .login_box .formBox .registerForm .input_box .pass,
+.login_container .login_box .formBox .registerForm .input_box .cpass,
+.login_container .register_box .formBox .loginForm .input_box .pass,
+.login_container .register_box .formBox .loginForm .input_box .cpass,
+.login_container .register_box .formBox .registerForm .input_box .pass,
+.login_container .register_box .formBox .registerForm .input_box .cpass {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  outline: none;
+  background: none;
+  padding: .3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Poppins";
+  border-bottom: 1px solid #888;
+  -webkit-transition: .1s;
+  transition: .1s;
+}
+
+.register_container .login_box .formBox .loginForm .input_box .pass:hover, .register_container .login_box .formBox .loginForm .input_box .cpass:hover,
+.register_container .login_box .formBox .registerForm .input_box .pass:hover,
+.register_container .login_box .formBox .registerForm .input_box .cpass:hover,
+.register_container .register_box .formBox .loginForm .input_box .pass:hover,
+.register_container .register_box .formBox .loginForm .input_box .cpass:hover,
+.register_container .register_box .formBox .registerForm .input_box .pass:hover,
+.register_container .register_box .formBox .registerForm .input_box .cpass:hover,
+.login_container .login_box .formBox .loginForm .input_box .pass:hover,
+.login_container .login_box .formBox .loginForm .input_box .cpass:hover,
+.login_container .login_box .formBox .registerForm .input_box .pass:hover,
+.login_container .login_box .formBox .registerForm .input_box .cpass:hover,
+.login_container .register_box .formBox .loginForm .input_box .pass:hover,
+.login_container .register_box .formBox .loginForm .input_box .cpass:hover,
+.login_container .register_box .formBox .registerForm .input_box .pass:hover,
+.login_container .register_box .formBox .registerForm .input_box .cpass:hover {
+  border-bottom: 2px solid #011627;
+}
+
+.register_container .login_box .formBox .loginForm .input_box .pass:focus, .register_container .login_box .formBox .loginForm .input_box .cpass:focus,
+.register_container .login_box .formBox .registerForm .input_box .pass:focus,
+.register_container .login_box .formBox .registerForm .input_box .cpass:focus,
+.register_container .register_box .formBox .loginForm .input_box .pass:focus,
+.register_container .register_box .formBox .loginForm .input_box .cpass:focus,
+.register_container .register_box .formBox .registerForm .input_box .pass:focus,
+.register_container .register_box .formBox .registerForm .input_box .cpass:focus,
+.login_container .login_box .formBox .loginForm .input_box .pass:focus,
+.login_container .login_box .formBox .loginForm .input_box .cpass:focus,
+.login_container .login_box .formBox .registerForm .input_box .pass:focus,
+.login_container .login_box .formBox .registerForm .input_box .cpass:focus,
+.login_container .register_box .formBox .loginForm .input_box .pass:focus,
+.login_container .register_box .formBox .loginForm .input_box .cpass:focus,
+.login_container .register_box .formBox .registerForm .input_box .pass:focus,
+.login_container .register_box .formBox .registerForm .input_box .cpass:focus {
+  border-bottom: 2px solid royalblue;
+}
+
+.register_container .login_box .formBox .loginForm .input_box .pass::-webkit-input-placeholder, .register_container .login_box .formBox .loginForm .input_box .cpass::-webkit-input-placeholder,
+.register_container .login_box .formBox .registerForm .input_box .pass::-webkit-input-placeholder,
+.register_container .login_box .formBox .registerForm .input_box .cpass::-webkit-input-placeholder,
+.register_container .register_box .formBox .loginForm .input_box .pass::-webkit-input-placeholder,
+.register_container .register_box .formBox .loginForm .input_box .cpass::-webkit-input-placeholder,
+.register_container .register_box .formBox .registerForm .input_box .pass::-webkit-input-placeholder,
+.register_container .register_box .formBox .registerForm .input_box .cpass::-webkit-input-placeholder,
+.login_container .login_box .formBox .loginForm .input_box .pass::-webkit-input-placeholder,
+.login_container .login_box .formBox .loginForm .input_box .cpass::-webkit-input-placeholder,
+.login_container .login_box .formBox .registerForm .input_box .pass::-webkit-input-placeholder,
+.login_container .login_box .formBox .registerForm .input_box .cpass::-webkit-input-placeholder,
+.login_container .register_box .formBox .loginForm .input_box .pass::-webkit-input-placeholder,
+.login_container .register_box .formBox .loginForm .input_box .cpass::-webkit-input-placeholder,
+.login_container .register_box .formBox .registerForm .input_box .pass::-webkit-input-placeholder,
+.login_container .register_box .formBox .registerForm .input_box .cpass::-webkit-input-placeholder {
+  font-family: "Poppins";
+}
+
+.register_container .login_box .formBox .loginForm .input_box .pass:-ms-input-placeholder, .register_container .login_box .formBox .loginForm .input_box .cpass:-ms-input-placeholder,
+.register_container .login_box .formBox .registerForm .input_box .pass:-ms-input-placeholder,
+.register_container .login_box .formBox .registerForm .input_box .cpass:-ms-input-placeholder,
+.register_container .register_box .formBox .loginForm .input_box .pass:-ms-input-placeholder,
+.register_container .register_box .formBox .loginForm .input_box .cpass:-ms-input-placeholder,
+.register_container .register_box .formBox .registerForm .input_box .pass:-ms-input-placeholder,
+.register_container .register_box .formBox .registerForm .input_box .cpass:-ms-input-placeholder,
+.login_container .login_box .formBox .loginForm .input_box .pass:-ms-input-placeholder,
+.login_container .login_box .formBox .loginForm .input_box .cpass:-ms-input-placeholder,
+.login_container .login_box .formBox .registerForm .input_box .pass:-ms-input-placeholder,
+.login_container .login_box .formBox .registerForm .input_box .cpass:-ms-input-placeholder,
+.login_container .register_box .formBox .loginForm .input_box .pass:-ms-input-placeholder,
+.login_container .register_box .formBox .loginForm .input_box .cpass:-ms-input-placeholder,
+.login_container .register_box .formBox .registerForm .input_box .pass:-ms-input-placeholder,
+.login_container .register_box .formBox .registerForm .input_box .cpass:-ms-input-placeholder {
+  font-family: "Poppins";
+}
+
+.register_container .login_box .formBox .loginForm .input_box .pass::-ms-input-placeholder, .register_container .login_box .formBox .loginForm .input_box .cpass::-ms-input-placeholder,
+.register_container .login_box .formBox .registerForm .input_box .pass::-ms-input-placeholder,
+.register_container .login_box .formBox .registerForm .input_box .cpass::-ms-input-placeholder,
+.register_container .register_box .formBox .loginForm .input_box .pass::-ms-input-placeholder,
+.register_container .register_box .formBox .loginForm .input_box .cpass::-ms-input-placeholder,
+.register_container .register_box .formBox .registerForm .input_box .pass::-ms-input-placeholder,
+.register_container .register_box .formBox .registerForm .input_box .cpass::-ms-input-placeholder,
+.login_container .login_box .formBox .loginForm .input_box .pass::-ms-input-placeholder,
+.login_container .login_box .formBox .loginForm .input_box .cpass::-ms-input-placeholder,
+.login_container .login_box .formBox .registerForm .input_box .pass::-ms-input-placeholder,
+.login_container .login_box .formBox .registerForm .input_box .cpass::-ms-input-placeholder,
+.login_container .register_box .formBox .loginForm .input_box .pass::-ms-input-placeholder,
+.login_container .register_box .formBox .loginForm .input_box .cpass::-ms-input-placeholder,
+.login_container .register_box .formBox .registerForm .input_box .pass::-ms-input-placeholder,
+.login_container .register_box .formBox .registerForm .input_box .cpass::-ms-input-placeholder {
+  font-family: "Poppins";
+}
+
+.register_container .login_box .formBox .loginForm .input_box .pass::placeholder, .register_container .login_box .formBox .loginForm .input_box .cpass::placeholder,
+.register_container .login_box .formBox .registerForm .input_box .pass::placeholder,
+.register_container .login_box .formBox .registerForm .input_box .cpass::placeholder,
+.register_container .register_box .formBox .loginForm .input_box .pass::placeholder,
+.register_container .register_box .formBox .loginForm .input_box .cpass::placeholder,
+.register_container .register_box .formBox .registerForm .input_box .pass::placeholder,
+.register_container .register_box .formBox .registerForm .input_box .cpass::placeholder,
+.login_container .login_box .formBox .loginForm .input_box .pass::placeholder,
+.login_container .login_box .formBox .loginForm .input_box .cpass::placeholder,
+.login_container .login_box .formBox .registerForm .input_box .pass::placeholder,
+.login_container .login_box .formBox .registerForm .input_box .cpass::placeholder,
+.login_container .register_box .formBox .loginForm .input_box .pass::placeholder,
+.login_container .register_box .formBox .loginForm .input_box .cpass::placeholder,
+.login_container .register_box .formBox .registerForm .input_box .pass::placeholder,
+.login_container .register_box .formBox .registerForm .input_box .cpass::placeholder {
+  font-family: "Poppins";
+}
+
+.register_container .login_box .formBox .loginForm .register_btn,
+.register_container .login_box .formBox .loginForm .login_btn,
+.register_container .login_box .formBox .registerForm .register_btn,
+.register_container .login_box .formBox .registerForm .login_btn,
+.register_container .register_box .formBox .loginForm .register_btn,
+.register_container .register_box .formBox .loginForm .login_btn,
+.register_container .register_box .formBox .registerForm .register_btn,
+.register_container .register_box .formBox .registerForm .login_btn,
+.login_container .login_box .formBox .loginForm .register_btn,
+.login_container .login_box .formBox .loginForm .login_btn,
+.login_container .login_box .formBox .registerForm .register_btn,
+.login_container .login_box .formBox .registerForm .login_btn,
+.login_container .register_box .formBox .loginForm .register_btn,
+.login_container .register_box .formBox .loginForm .login_btn,
+.login_container .register_box .formBox .registerForm .register_btn,
+.login_container .register_box .formBox .registerForm .login_btn {
+  padding: .3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Ubuntu";
+  background: #ffbd00;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.register_container .login_box .formBox .loginForm .register_btn:hover,
+.register_container .login_box .formBox .loginForm .login_btn:hover,
+.register_container .login_box .formBox .registerForm .register_btn:hover,
+.register_container .login_box .formBox .registerForm .login_btn:hover,
+.register_container .register_box .formBox .loginForm .register_btn:hover,
+.register_container .register_box .formBox .loginForm .login_btn:hover,
+.register_container .register_box .formBox .registerForm .register_btn:hover,
+.register_container .register_box .formBox .registerForm .login_btn:hover,
+.login_container .login_box .formBox .loginForm .register_btn:hover,
+.login_container .login_box .formBox .loginForm .login_btn:hover,
+.login_container .login_box .formBox .registerForm .register_btn:hover,
+.login_container .login_box .formBox .registerForm .login_btn:hover,
+.login_container .register_box .formBox .loginForm .register_btn:hover,
+.login_container .register_box .formBox .loginForm .login_btn:hover,
+.login_container .register_box .formBox .registerForm .register_btn:hover,
+.login_container .register_box .formBox .registerForm .login_btn:hover {
+  -webkit-box-shadow: 0 1px 7px 1px #011627;
+          box-shadow: 0 1px 7px 1px #011627;
+  background: #ffc300;
+  letter-spacing: 1px;
+}
+
+.register_container .login_box .formBox .loginForm .redirectLinks,
+.register_container .login_box .formBox .registerForm .redirectLinks,
+.register_container .register_box .formBox .loginForm .redirectLinks,
+.register_container .register_box .formBox .registerForm .redirectLinks,
+.login_container .login_box .formBox .loginForm .redirectLinks,
+.login_container .login_box .formBox .registerForm .redirectLinks,
+.login_container .register_box .formBox .loginForm .redirectLinks,
+.login_container .register_box .formBox .registerForm .redirectLinks {
+  margin-top: 1rem;
+  word-break: break-all;
+}
+
+.register_container .login_box .formBox .loginForm .redirectLinks .rLink,
+.register_container .login_box .formBox .registerForm .redirectLinks .rLink,
+.register_container .register_box .formBox .loginForm .redirectLinks .rLink,
+.register_container .register_box .formBox .registerForm .redirectLinks .rLink,
+.login_container .login_box .formBox .loginForm .redirectLinks .rLink,
+.login_container .login_box .formBox .registerForm .redirectLinks .rLink,
+.login_container .register_box .formBox .loginForm .redirectLinks .rLink,
+.login_container .register_box .formBox .registerForm .redirectLinks .rLink {
+  color: purple;
+  font-weight: 600;
+  font-size: .8rem;
+  margin-right: .5rem;
+  text-decoration: none;
+}
+
+.register_container .login_box .formBox .loginForm .redirectLinks .rLink:hover,
+.register_container .login_box .formBox .registerForm .redirectLinks .rLink:hover,
+.register_container .register_box .formBox .loginForm .redirectLinks .rLink:hover,
+.register_container .register_box .formBox .registerForm .redirectLinks .rLink:hover,
+.login_container .login_box .formBox .loginForm .redirectLinks .rLink:hover,
+.login_container .login_box .formBox .registerForm .redirectLinks .rLink:hover,
+.login_container .register_box .formBox .loginForm .redirectLinks .rLink:hover,
+.login_container .register_box .formBox .registerForm .redirectLinks .rLink:hover {
+  text-decoration: underline;
+}
+
+.register_container .login_box .formBox .login_bg,
+.register_container .login_box .formBox .register_bg,
+.register_container .register_box .formBox .login_bg,
+.register_container .register_box .formBox .register_bg,
+.login_container .login_box .formBox .login_bg,
+.login_container .login_box .formBox .register_bg,
+.login_container .register_box .formBox .login_bg,
+.login_container .register_box .formBox .register_bg {
+  width: 1px;
+  height: 100%;
+  -webkit-box-flex: .60;
+      -ms-flex: .60;
+          flex: .60;
+}
+
+.register_container .login_box .formBox .login_bg,
+.register_container .register_box .formBox .login_bg,
+.login_container .login_box .formBox .login_bg,
+.login_container .register_box .formBox .login_bg {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.384)), to(rgba(0, 0, 0, 0.582))), url("~./images/loginBG.png") no-repeat center;
+  background: linear-gradient(rgba(0, 0, 0, 0.384), rgba(0, 0, 0, 0.582)), url("~./images/loginBG.png") no-repeat center;
+  background-size: 100% 100%;
+}
+
+.register_container .login_box .formBox .register_bg,
+.register_container .register_box .formBox .register_bg,
+.login_container .login_box .formBox .register_bg,
+.login_container .register_box .formBox .register_bg {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.5))), url("~./images/registerBG.jpg") no-repeat center;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url("~./images/registerBG.jpg") no-repeat center;
+  background-size: 100% 100%;
+}
+/*# sourceMappingURL=main.css.map */
