@@ -259,6 +259,10 @@ body {
   font-weight: 600;
 }
 
+.game_container .card-container .card_input .play_btn.hide {
+  display: none;
+}
+
 .game_container .card-container .card {
   -webkit-box-flex: 1;
       -ms-flex: 1;

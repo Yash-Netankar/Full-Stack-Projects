@@ -83,9 +83,9 @@ io.on("connection", socket => {
     })
 
     // CHAT MESSAGE
-    socket.on("join", room => {
-        socket.join(room);
-        io.to(room).emit("list_of_users", list_of_users[room]);
+    socket.on("join", roome => {
+        socket.join(roome);
+        io.to(roome).emit("list_of_users", list_of_users[roome]);
     });
     socket.on("chat-msg", data => {
         io.to(`${data.room}`).emit("chat-msg-send", { name: data.name, msg: data.msg })

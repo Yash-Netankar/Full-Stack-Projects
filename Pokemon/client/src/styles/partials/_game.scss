@@ -55,6 +55,9 @@
             background: $yellow;
             font-weight: 600;
         }
+        .play_btn.hide{
+            display: none;
+        }
     }
     .card {
         flex: 1;

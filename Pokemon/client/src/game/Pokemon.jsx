@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import Button from "@material-ui/core/Button";
 import ChatIcon from '@material-ui/icons/ChatBubbleOutlineOutlined';
@@ -9,7 +9,7 @@ import Close from '@material-ui/icons/Close';
 import TextField from '@material-ui/core/TextField';
 
 import io from "socket.io-client";
-const socket = io.connect("/");
+const socket = io.connect("http://localhost:3001");
 
 
 let allData = {};
@@ -17,13 +17,12 @@ let track_no_of_rounds = 0;
 
 // styles
 const style = { color: "#ff4757" }
-const show = { display: "block" }
-const none = { display: "none" }
+// const show = { display: "block" }
+// const none = { display: "none" }
 
 const Pokemon = () => {
     const { name, room } = useParams();
-    const history = useHistory();
-
+    // const history = useHistory();
     const [num, setNum] = useState(1);
 
     const [pname, setName] = useState();
@@ -32,7 +31,7 @@ const Pokemon = () => {
 
     const [round, setRound] = useState(10);
 
-    const [countdown, setCountdown] = useState(10);
+    // const [countdown, setCountdown] = useState(10);
 
     const [sidebar1, setSidebar1] = useState(false);
     const [sidebar2, setSidebar2] = useState(false);
@@ -40,34 +39,37 @@ const Pokemon = () => {
     const [msg, setMsg] = useState("");
     const [list_of_users, setList_of_users] = useState([]);
 
-    const [display, setDisplay] = useState(true);
+    // const [display, setDisplay] = useState(true);
 
     // get all data
     const getAllData = async () => {
-        let data = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=691');
+        let data = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=500');
         data.data.results.forEach(item => {
             axios.get(item.url).then(data => {
                 allData[data.data.name] = [data.data.moves.length, data.data.sprites.front_default];
             });
         })
     }
-
-    // show game after 6 seconds so that all data is loaded, COUNTDOWN
-    useEffect(() => {
-        let interval = setInterval(() => {
-            setCountdown(countdown - 1);
-        }, 1000);
-        setTimeout(() => {
-            setDisplay(false)
-            clearInterval(interval);
-        }, 10000);
-    }, [countdown])
-
-
     useEffect(() => {
         getAllData();
+    }, [])
+
+    // show game after 10 seconds so that all data is loaded, COUNTDOWN
+    // useEffect(() => {
+    //     let interval = setInterval(() => {
+    //         setCountdown(countdown - 1);
+    //     }, 1000);
+    //     setTimeout(() => {
+    //         setDisplay(false)
+    //         clearInterval(interval);
+    //     }, 10000);
+    // }, [countdown])
+
+
+    useEffect(() => {
         /*****************SOCKET HANDLING****************** */
         let msg_box = document.querySelector(".msg_box");
+        console.log("Running everytime...");
 
         socket.emit("join", room);
         socket.on("list_of_users", list_of_users => {
@@ -91,10 +93,10 @@ const Pokemon = () => {
 
         // updating winner's score
         socket.on("winner", (data) => {
+            console.log(track_no_of_rounds);
             let score_div = document.querySelector(`.${data.winner}-score`);
             score_div.innerText = data.score;
-            document.querySelector(".play_btn").disabled = false;
-            document.querySelector(".play_btn").style.display = "block";
+            document.querySelector(".play_btn").classList.remove("hide");
             track_no_of_rounds++;
         });
 
@@ -149,8 +151,7 @@ const Pokemon = () => {
                 setMoves(access[0]);
                 setImage(access[1]);
                 // now playing the game with other players in room
-                document.querySelector(".play_btn").disabled = true;
-                document.querySelector(".play_btn").style.display = "none"
+                document.querySelector(".play_btn").classList.add("hide");
                 socket.emit("play", { name, room, moves: access[0] });
             }
             else
@@ -171,10 +172,10 @@ const Pokemon = () => {
     //JSX
     return (
         <>
-            <div className="begin" style={display ? show : none}>
+            {/* <div className="begin">
                 <h1 style={{ textAlign: "center" }}>The Game will Begin in {countdown} seconds...</h1>
-            </div>
-            <div className="game_container" style={display ? none : show}>
+            </div> */}
+            <div className="game_container" >
                 <header className="game_header">
                     <div className="logo">
                         <Button className="chat_btn"
