@@ -1,0 +1,103 @@
+@mixin infoStyle($bg, $padding, $size) {
+    font-size: $size;
+    text-shadow: 1px 2px 10px white;
+    padding: $padding;
+}
+
+@mixin media($width) {
+    min-width: $width;
+    max-width: $width;
+}
+
+.card{
+    margin: 1.5rem 1.5rem;
+    min-width: 35%;
+    max-width: 35%;
+    height: auto;
+    background-color: black;
+    border-radius: 5px;
+    border: 2px solid $white;
+    box-shadow: 1px 2px 15px 1px rgba(255, 255, 255, 0.397);
+    .img_div{
+        width: 100%;
+        margin: 0;
+        .movie_img{
+            width: 100%;
+            margin: 0;
+        }
+    }
+    .movie_info{
+        margin-top: 0px;
+        // background-color: $dark_card;
+        padding: 5px 10px;
+        .movie_name{
+            width: 100%;
+            background-color: whitesmoke;
+            margin-bottom: 10px;
+            text-align: center;
+            box-shadow: 1px 1px 5px 1px white;
+            letter-spacing: 1px;
+            transition: .3s;
+            cursor: pointer;
+            font-size: "Baloo Tammudu 2";
+            @include infoStyle($white, 1px, 1.3rem);
+            &:hover{
+                box-shadow: 1px 1px 8px 2px $white;
+            }
+        }
+        .movie_release,
+        .movie_lang,
+        .movie_budjet,
+        .movie_collection{
+            color: $white;
+            @include infoStyle($white, 5px, .8rem);
+        }
+    }
+    .actions_div{
+        width: 100%;
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: rgba(155, 155, 155, 0.315);
+        .del-btn{
+            color: #EA2027;
+            background-color: rgba(255, 255, 255, 0.192);
+            &:hover{
+                background-color: #EA2027;
+                color: black;
+            }
+        }
+        .edit-btn{
+            color: #1e90ff;
+            background-color: rgba(255, 255, 255, 0.192);
+            &:hover{
+                background-color: #1e90ff;
+                color: black;
+            }
+        }
+    }
+}
+
+
+// responsiveness of cards
+@media screen and (max-width:680px){
+    .card{
+        @include media(40%);
+    }
+}
+@media screen and (max-width:550px){
+    .card{
+        @include media(55%);
+    }
+}
+@media screen and (max-width:370px){
+    .card{
+        @include media(75%);
+    }
+}
+@media screen and (max-width:340px){
+    .card{
+        @include media(85%);
+    }
+}

@@ -1,0 +1,97 @@
+.CreatePage, .EditPage{
+    width: 100%;
+    height: 90vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.637), rgba(0, 0, 0, 0.39)), url('/src/styles/images/createBG.jpg') no-repeat center center;
+    background-size: cover;
+    display: grid;
+    place-items: center;
+    .form_div{
+        width: 70%;
+        max-width: 70%;
+        padding: 1rem .5rem;
+        background: rgba(12, 12, 12, 0.514);
+        border: 2px solid black;
+        box-shadow: 1px 2px 10px 5px rgba(255, 255, 255, 0.63),
+        3px 5px 15px 10px rgba(0, 0, 0, 0.404);
+        h1{
+            color: $white;
+            text-shadow: 1px 2px 3px black;
+            font-size: 2rem;
+            text-align: center;
+            font-family: "Baloo Tammudu 2";
+        }
+        form{
+            width: 100%;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            input{
+                padding: .2rem;
+                margin-top: 1rem;
+                outline: none;
+                border: none;
+                background: rgba(255, 255, 255, 0.795);
+                color: black;
+                font-size: .9rem;
+                font-weight: 600;
+                letter-spacing: 1px;
+                font-family: "Poppins";
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button{
+                    display: none;
+                }
+            }
+            .money{
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-start;
+            }
+            .submit-btn{
+                width: 30%;
+                margin: 0 auto;
+                margin-top: 1rem;
+                background: $white;
+                font-weight: 800;
+                font-family: "Poppins";
+                color: black;
+                padding: .5rem 1rem;
+                &:hover{
+                   box-shadow:0 0 10px 5px white;
+                }
+            }
+        }
+    }
+}
+
+.EditPage{
+    width: 100%;
+    height: 90vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.637), rgba(0, 0, 0, 0.39)), url('/src/styles/images/EditBG.jpg') no-repeat center center;
+    background-size: cover;
+    display: grid;
+    place-items: center;
+}
+
+@media screen and (max-width:700px){
+    .form_div{
+        width: 90%;
+    }
+    .money{
+        flex-direction: column;
+        input{
+            width: 100%;
+        }
+    }
+    .submit-btn{
+        width: 50% !important;
+    }
+}
+
+@media screen and (max-width:480px){
+    .form_div{
+        width: 99%;
+    }
+    .submit-btn{
+        width: 80% !important;
+    }
+}

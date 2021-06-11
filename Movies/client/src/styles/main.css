@@ -1,0 +1,340 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-size: 62.5%;
+  font-family: "Poppins";
+}
+
+.main_nav {
+  width: 100%;
+  padding: .3rem .7rem;
+  background-color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.main_nav .logo {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #ecf0f1;
+  letter-spacing: 2px;
+  word-spacing: 6px;
+  text-shadow: 1px 2px 5px black;
+}
+
+.main_nav .add_movie_btn {
+  color: #ecf0f1;
+  font-weight: 600;
+}
+
+.homePage {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #353b48;
+}
+
+.homePage .search_box {
+  width: 100%;
+  text-align: center;
+}
+
+.homePage .search_box input {
+  width: 80%;
+  margin: 1.5rem auto;
+  padding: .5rem;
+  font-family: "Poppins";
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 5px;
+  background-color: #ecf0f1;
+  outline: none;
+  border: 2px solid black;
+  -webkit-box-shadow: 2px 1px 5px 2px rgba(2, 2, 2, 0.13);
+          box-shadow: 2px 1px 5px 2px rgba(2, 2, 2, 0.13);
+  word-spacing: 2px;
+}
+
+.homePage .list_of_movies {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+@media screen and (max-width: 550px) {
+  .list_of_movies {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.card {
+  margin: 1.5rem 1.5rem;
+  min-width: 35%;
+  max-width: 35%;
+  height: auto;
+  background-color: black;
+  border-radius: 5px;
+  border: 2px solid #ecf0f1;
+  -webkit-box-shadow: 1px 2px 15px 1px rgba(255, 255, 255, 0.397);
+          box-shadow: 1px 2px 15px 1px rgba(255, 255, 255, 0.397);
+}
+
+.card .img_div {
+  width: 100%;
+  margin: 0;
+}
+
+.card .img_div .movie_img {
+  width: 100%;
+  margin: 0;
+}
+
+.card .movie_info {
+  margin-top: 0px;
+  padding: 5px 10px;
+}
+
+.card .movie_info .movie_name {
+  width: 100%;
+  background-color: whitesmoke;
+  margin-bottom: 10px;
+  text-align: center;
+  -webkit-box-shadow: 1px 1px 5px 1px white;
+          box-shadow: 1px 1px 5px 1px white;
+  letter-spacing: 1px;
+  -webkit-transition: .3s;
+  transition: .3s;
+  cursor: pointer;
+  font-size: "Baloo Tammudu 2";
+  font-size: 1.3rem;
+  text-shadow: 1px 2px 10px white;
+  padding: 1px;
+}
+
+.card .movie_info .movie_name:hover {
+  -webkit-box-shadow: 1px 1px 8px 2px #ecf0f1;
+          box-shadow: 1px 1px 8px 2px #ecf0f1;
+}
+
+.card .movie_info .movie_release,
+.card .movie_info .movie_lang,
+.card .movie_info .movie_budjet,
+.card .movie_info .movie_collection {
+  color: #ecf0f1;
+  font-size: 0.8rem;
+  text-shadow: 1px 2px 10px white;
+  padding: 5px;
+}
+
+.card .actions_div {
+  width: 100%;
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(155, 155, 155, 0.315);
+}
+
+.card .actions_div .del-btn {
+  color: #EA2027;
+  background-color: rgba(255, 255, 255, 0.192);
+}
+
+.card .actions_div .del-btn:hover {
+  background-color: #EA2027;
+  color: black;
+}
+
+.card .actions_div .edit-btn {
+  color: #1e90ff;
+  background-color: rgba(255, 255, 255, 0.192);
+}
+
+.card .actions_div .edit-btn:hover {
+  background-color: #1e90ff;
+  color: black;
+}
+
+@media screen and (max-width: 680px) {
+  .card {
+    min-width: 40%;
+    max-width: 40%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .card {
+    min-width: 55%;
+    max-width: 55%;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .card {
+    min-width: 75%;
+    max-width: 75%;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .card {
+    min-width: 85%;
+    max-width: 85%;
+  }
+}
+
+.CreatePage, .EditPage {
+  width: 100%;
+  height: 90vh;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.637)), to(rgba(0, 0, 0, 0.39))), url("/src/styles/images/createBG.jpg") no-repeat center center;
+  background: linear-gradient(rgba(0, 0, 0, 0.637), rgba(0, 0, 0, 0.39)), url("/src/styles/images/createBG.jpg") no-repeat center center;
+  background-size: cover;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.CreatePage .form_div, .EditPage .form_div {
+  width: 70%;
+  max-width: 70%;
+  padding: 1rem .5rem;
+  background: rgba(12, 12, 12, 0.514);
+  border: 2px solid black;
+  -webkit-box-shadow: 1px 2px 10px 5px rgba(255, 255, 255, 0.63), 3px 5px 15px 10px rgba(0, 0, 0, 0.404);
+          box-shadow: 1px 2px 10px 5px rgba(255, 255, 255, 0.63), 3px 5px 15px 10px rgba(0, 0, 0, 0.404);
+}
+
+.CreatePage .form_div h1, .EditPage .form_div h1 {
+  color: #ecf0f1;
+  text-shadow: 1px 2px 3px black;
+  font-size: 2rem;
+  text-align: center;
+  font-family: "Baloo Tammudu 2";
+}
+
+.CreatePage .form_div form, .EditPage .form_div form {
+  width: 100%;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.CreatePage .form_div form input, .EditPage .form_div form input {
+  padding: .2rem;
+  margin-top: 1rem;
+  outline: none;
+  border: none;
+  background: rgba(255, 255, 255, 0.795);
+  color: black;
+  font-size: .9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-family: "Poppins";
+}
+
+.CreatePage .form_div form input::-webkit-outer-spin-button, .CreatePage .form_div form input::-webkit-inner-spin-button, .EditPage .form_div form input::-webkit-outer-spin-button, .EditPage .form_div form input::-webkit-inner-spin-button {
+  display: none;
+}
+
+.CreatePage .form_div form .money, .EditPage .form_div form .money {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.CreatePage .form_div form .submit-btn, .EditPage .form_div form .submit-btn {
+  width: 30%;
+  margin: 0 auto;
+  margin-top: 1rem;
+  background: #ecf0f1;
+  font-weight: 800;
+  font-family: "Poppins";
+  color: black;
+  padding: .5rem 1rem;
+}
+
+.CreatePage .form_div form .submit-btn:hover, .EditPage .form_div form .submit-btn:hover {
+  -webkit-box-shadow: 0 0 10px 5px white;
+          box-shadow: 0 0 10px 5px white;
+}
+
+.EditPage {
+  width: 100%;
+  height: 90vh;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.637)), to(rgba(0, 0, 0, 0.39))), url("/src/styles/images/EditBG.jpg") no-repeat center center;
+  background: linear-gradient(rgba(0, 0, 0, 0.637), rgba(0, 0, 0, 0.39)), url("/src/styles/images/EditBG.jpg") no-repeat center center;
+  background-size: cover;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+@media screen and (max-width: 700px) {
+  .form_div {
+    width: 90%;
+  }
+  .money {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .money input {
+    width: 100%;
+  }
+  .submit-btn {
+    width: 50% !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .form_div {
+    width: 99%;
+  }
+  .submit-btn {
+    width: 80% !important;
+  }
+}
+/*# sourceMappingURL=main.css.map */
