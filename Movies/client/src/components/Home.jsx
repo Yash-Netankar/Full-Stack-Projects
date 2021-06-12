@@ -27,10 +27,25 @@ const Home = () => {
         }
     }
 
+    // Searching for a movie in search bar
+    const SearchMovie = () => {
+        let allMovieNames = document.querySelectorAll(".movie_name");
+        allMovieNames.forEach(ele => {
+            let name = ele.innerText;
+            let card = ele.parentElement.parentElement;
+            if (name.toLowerCase().includes(search_term.toLowerCase())) {
+                card.style.display = "block";
+            }
+            else {
+                card.style.display = "none";
+            }
+        })
+    }
+
     return (
         <main className="homePage">
             <div className="search_box">
-                <input type="text" className="search_ip" placeholder="Search For a Movie" value={search_term} onChange={(e) => setSearch_term(e.target.value)} />
+                <input type="text" className="search_ip" placeholder="Search For a Movie" value={search_term} onChange={(e) => setSearch_term(e.target.value)} onKeyUp={SearchMovie} />
             </div>
             <div className="list_of_movies">
                 {

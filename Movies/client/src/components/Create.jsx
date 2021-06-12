@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import Button from "@material-ui/core/Button";
+import { useHistory } from 'react-router-dom';
 
 const Create = () => {
+    const history = useHistory();
 
     const [movieInfo, setMovieInfo] = useState({
         mname: "",
@@ -29,7 +31,10 @@ const Create = () => {
         e.preventDefault();
         // sending movie to backend
         await axios.post("http://localhost:3001/movie/add", movieInfo).
-            then(res => window.alert(res.data)).
+            then(res => {
+                window.alert(res.data);
+                history.push("/");
+            }).
             catch(err => console.log(err));
     }
 

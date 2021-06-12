@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
 
 const Create = () => {
 
     const { id } = useParams("id");
+    const history = useHistory();
 
     const [movieInfo, setMovieInfo] = useState({
         mname: "",
@@ -39,7 +40,10 @@ const Create = () => {
     const SubmitForm = async (e) => {
         e.preventDefault();
         await axios.put("http://localhost:3001/movie/update", movieInfo)
-            .then(res => window.alert(res.data))
+            .then(res => {
+                window.alert(res.data);
+                history.push("/");
+            })
             .catch(err => console.log(err));
     }
 
